@@ -293,14 +293,14 @@ $(function() {
 	  });
 
 
-// core & register form
+// services & register form
 	$('button.signup').on("click", function(){
-		$('.core-reg-bg').addClass('show');
+		$('.services-reg-bg').addClass('show');
 		return false;
 	  });
 
 	  $('.already-have').on("click", function(){
-		$('.core-reg-bg').removeClass('show');
+		$('.services-reg-bg').removeClass('show');
 		return false;
 	  });
 

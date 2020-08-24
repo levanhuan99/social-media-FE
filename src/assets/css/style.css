@@ -10,7 +10,7 @@ Last change:  4/september/18
 
 01- general styling
 02- sticky header
-03- core/landing page
+03- services/landing page
 04- home page topbar
 05- timeline area
 06- messages dropdowns
@@ -7343,7 +7343,7 @@ ul.offcanvas-menu ul {
 }
 
 
-/*--- core box ---*/
+/*--- services box ---*/
 
 .servic-category {
     background: #fff none repeat scroll 0 0;
@@ -9677,7 +9677,7 @@ aside.sidebar.full-style {
 }
 
 
-/*--- core sidebar ---*/
+/*--- services sidebar ---*/
 
 .singin > form {
     border: 1px solid #eaeaea;
