@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {JwtResponse} from '../../models/JwtResponse';
-import {TokenStorageService} from '../../intercepter/token-storage.service';
+import {TokenStorageService} from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-login',
