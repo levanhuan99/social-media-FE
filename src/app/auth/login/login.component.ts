@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {JwtResponse} from '../../models/JwtResponse';
+import {TokenStorageService} from '../../intercepter/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private authService:AuthService,private route:Router) {
+  constructor(private authService: AuthService, private route: Router, private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -27,14 +29,19 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     };
-    this.authService.login(data).subscribe(resp=>{
-      if (localStorage.getItem('user')!=null){
-        console.log('đã login rồi');
-      }else {
-        localStorage.setItem('user',JSON.stringify(resp));
-        console.log('chưa login');
+    this.authService.login(data).subscribe((resp: JwtResponse) => {
+
+      //save user info in localstorage and navigate to user`home
+
+      if (!this.tokenStorage.isLoggIn()) {
+        this.tokenStorage.saveId(resp.id);
+        this.tokenStorage.saveEmail(resp.email);
+        this.tokenStorage.saveAccessToken(resp.accessToken);
+        this.tokenStorage.saveRoles(resp.roles);
+        this.tokenStorage.saveLoggedStatus();
       }
-      this.route.navigate(['user/home'])
+      this.route.navigate(['user/home']);
+
     });
 
   }
