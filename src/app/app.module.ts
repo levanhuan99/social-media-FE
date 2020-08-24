@@ -8,6 +8,8 @@ import {SideRightComponent} from './shared/side-right/side-right.component';
 import {SideLeftComponent} from './shared/side-left/side-left.component';
 import {LayoutComponent} from './layout/layout.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -16,12 +18,14 @@ import {HttpClientModule} from '@angular/common/http';
     LayoutComponent,
     HeaderComponent,
     SideRightComponent,
-    SideLeftComponent
+    SideLeftComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
