@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-const LOGGED_STATUS = 'logged in';
+
 
 @Injectable({
   providedIn: 'root'
