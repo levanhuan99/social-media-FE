@@ -1,7 +1,6 @@
 export interface Account {
   id?: number;
-  firstName?: string;
-  lastName?: string;
+
   email?: string;
   nickName?: string;
   phoneNumber?:string;

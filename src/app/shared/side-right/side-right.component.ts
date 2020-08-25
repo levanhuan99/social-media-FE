@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-side-right',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-right.component.css']
 })
 export class SideRightComponent implements OnInit {
-
+  sideRightForm:FormGroup;
   constructor() { }
 
   ngOnInit(): void {

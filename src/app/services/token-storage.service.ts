@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,47 +11,51 @@ export class TokenStorageService {
 
 
   public saveId(id: number) {
-    if (this.isLoggIn()){
+    if (this.isLoggIn()) {
       localStorage.removeItem('id');
     }
     localStorage.setItem('id', String(id));
   }
 
-  public saveEmail(email:string){
-    if (this.isLoggIn()){
+  public saveEmail(email: string) {
+    if (this.isLoggIn()) {
       localStorage.removeItem('email');
     }
-    localStorage.setItem('email',email);
+    localStorage.setItem('email', email);
   }
 
-  public saveRoles(roles:any){
-    if (this.isLoggIn()){
+  public saveRoles(roles: any) {
+    if (this.isLoggIn()) {
       localStorage.removeItem('roles');
     }
-    localStorage.setItem('roles',JSON.stringify(roles));
+    localStorage.setItem('roles', JSON.stringify(roles));
   }
 
-  public saveAccessToken(accessToken:string){
-    if (this.isLoggIn()){
+  public saveAccessToken(accessToken: string) {
+    if (this.isLoggIn()) {
       localStorage.removeItem('accessToken');
     }
-    localStorage.setItem('accessToken',accessToken);
+    localStorage.setItem('accessToken', accessToken);
   }
 
-  public saveLoggedStatus(){
-    if (this.isLoggIn()){
+  public saveLoggedStatus() {
+    if (this.isLoggIn()) {
       localStorage.removeItem('accessToken');
     }
-    localStorage.setItem('logged_status','logged');
+    localStorage.setItem('logged_status', 'logged');
   }
 
   public isLoggIn(): boolean {
-    if (localStorage.getItem('logged_status')==='logged') {
+    if (localStorage.getItem('logged_status') === 'logged') {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
+  }
+
+
+  public getToken(): string {
+    return localStorage.getItem('accessToken');
   }
 
 
