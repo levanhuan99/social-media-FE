@@ -4,21 +4,24 @@ import {LayoutComponent} from './layout/layout.component';
 import {LoginComponent} from './auth/login/login.component';
 import {AuthGuard} from './guard/auth.guard';
 import {RegisterComponent} from './auth/register/register.component';
+import {HeaderComponent} from './shared/header/header.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
 
   {
     path: 'user', component: LayoutComponent,
+
     children: [
-      {path: 'home', loadChildren: () => import('./user/user.module').then(m => m.UserModule)}
+      {path: '', loadChildren: () => import('./user/user.module').then(m => m.UserModule)}
     ]
   },
+
   {
-    path:'login',component:LoginComponent
+    path: 'login', component: LoginComponent
   },
   {
-    path:'register',component:RegisterComponent
+    path: 'register', component: RegisterComponent
   }
 ];
 
