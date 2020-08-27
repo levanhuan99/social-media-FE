@@ -1,0 +1,41 @@
+<div class="central-meta">
+  <div class="onoff-options">
+    <h5 class="f-title"><i class="ti-settings"></i>account setting</h5>
+    <div class="setting-row">
+      <span>Nickname</span>
+      <br>
+      <input type="text">
+    </div>
+    <div class="setting-row">
+      <span>Email</span>
+      <br>
+      <input type="text">
+    </div>
+    <div class="setting-row">
+      <span>Phone</span>
+      <br>
+      <input type="text">
+    </div>
+
+    <div class="submit-btns">
+      <button type="button" class="btn btn-primary" (click)="div_show()">
+      Edit
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div id="abc">
+  <div id="popupContact">
+    <form [formGroup]="" action="#" id="form" method="post" name="form">
+      <h2>Contact Us</h2>
+      <hr>
+      <input id="name" name="name" placeholder="Name" type="text">
+      <input id="email" name="email" placeholder="Email" type="text">
+      <textarea id="msg" name="message" placeholder="Message"></textarea>
+      <button (click)="div_hide()" id="submit">Send</button>
+    </form>
+  </div>
+</div>
+

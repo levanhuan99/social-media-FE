@@ -40,13 +40,11 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveRoles(resp.roles);
         this.tokenStorage.saveLoggedStatus();
       }
-      this.route.navigate(['user/home']);
-
+      this.route.navigate(['home']);
     });
-
   }
 
-  register(){
+  register() {
     this.route.navigate(['register']);
   }
 }

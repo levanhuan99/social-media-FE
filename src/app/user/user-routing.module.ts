@@ -1,16 +1,16 @@
-import {Routes, RouterModule} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {PostsComponent} from './posts/posts.component';
+import {RouterModule, Routes} from '@angular/router';
+
 import {AuthGuard} from '../guard/auth.guard';
+import {NgModule} from '@angular/core';
+
+import {UserInforComponent} from './user-infor/user-infor.component';
+
 
 
 const routes: Routes = [
 
-  {
-    path: 'home',
-    component: PostsComponent,canActivate:[AuthGuard]
-  },
-
+  // {path:'',component:EditAccountComponent},
+  {path:'detail',component:UserInforComponent,canActivate:[AuthGuard]}
 
 ];
 

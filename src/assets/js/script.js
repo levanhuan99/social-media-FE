@@ -128,10 +128,10 @@ $('.notification-box > ul li > i.del').on("click", function(){
 $('#nightmode').on('change', function() {
     if ($(this).is(':checked')) {
         // Show popup window
-        $(".theme-layout").addClass('black');
+        $(".theme-home-layout").addClass('black');
     }
 	else {
-        $(".theme-layout").removeClass("black");
+        $(".theme-home-layout").removeClass("black");
     }
 });
 
@@ -281,11 +281,11 @@ $(function() {
 //**** Slide Panel Toggle ***//
 	  $("span.main-menu").on("click", function(){
 	     $(".side-panel").addClass('active');
-		  $(".theme-layout").addClass('active');
+		  $(".theme-home-layout").addClass('active');
 		  return false;
 	  });
 
-	  $('.theme-layout').on("click",function(){
+	  $('.theme-home-layout').on("click",function(){
 		  $(this).removeClass('active');
 	     $(".side-panel").removeClass('active');
 
