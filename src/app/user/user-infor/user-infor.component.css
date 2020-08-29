@@ -64,6 +64,10 @@ input[type=text] {
   background-repeat:no-repeat;
   background-position:5px 7px
 }
+#phone {
+  background-repeat:no-repeat;
+  background-position:5px 7px
+}
 textarea {
   background-repeat:no-repeat;
   background-position:5px 7px;

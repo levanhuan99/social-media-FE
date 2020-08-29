@@ -7,10 +7,12 @@ import {HeaderComponent} from './shared/header/header.component';
 import {SideRightComponent} from './shared/side-right/side-right.component';
 import {SideLeftComponent} from './shared/side-left/side-left.component';
 import {LayoutComponent} from './home-layout/layout.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './auth/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
+import {authInterceptorProviders, AuthIntorceptor} from './guard/auth.interceptor';
+import {APP_BASE_HREF} from '@angular/common';
 
 
 @NgModule({
@@ -31,7 +33,10 @@ import { RegisterComponent } from './auth/register/register.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders,
+    {provide: APP_BASE_HREF, useValue: '/'},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthIntorceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

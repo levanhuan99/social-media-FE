@@ -2,38 +2,33 @@
   <div class="onoff-options">
     <h5 class="f-title"><i class="ti-settings"></i>account setting</h5>
     <div class="setting-row">
-      <span>Nickname</span>
-      <br>
-      <input type="text">
+      <span>Nickname: {{account.nickName}}</span>
     </div>
     <div class="setting-row">
-      <span>Email</span>
-      <br>
-      <input type="text">
+      <span>Email: {{account.email}}</span>
     </div>
     <div class="setting-row">
-      <span>Phone</span>
-      <br>
-      <input type="text">
+      <span>Phone: {{account.phoneNumber}}</span>
     </div>
 
     <div class="submit-btns">
       <button type="button" class="btn btn-primary" (click)="div_show()">
-      Edit
+        Edit
       </button>
     </div>
   </div>
 </div>
 
 
+
 <div id="abc">
   <div id="popupContact">
-    <form [formGroup]="" action="#" id="form" method="post" name="form">
+    <form [formGroup]="editForm"  id="form" method="post" name="form">
       <h2>Contact Us</h2>
       <hr>
-      <input id="name" name="name" placeholder="Name" type="text">
-      <input id="email" name="email" placeholder="Email" type="text">
-      <textarea id="msg" name="message" placeholder="Message"></textarea>
+      <input id="name" name="name" placeholder="Name" type="text" formControlName="nickName">
+      <input id="email" name="email" placeholder="Email" type="text" formControlName="email">
+      <input id="phone" name="email" placeholder="Phone" type="number" formControlName="phoneNumber">
       <button (click)="div_hide()" id="submit">Send</button>
     </form>
   </div>

@@ -58,5 +58,13 @@ export class TokenStorageService {
     return localStorage.getItem('accessToken');
   }
 
+  public getId(): string {
+    return localStorage.getItem('id');
+  }
+  public clearTokens(){
+    return localStorage.clear();
+  }
+
+
 
 }
