@@ -21,13 +21,13 @@
 
     <ul class="setting-area">
       <li>
-        <a href="#" title="Home" data-ripple=""><i class="fa fa-search"></i></a>
-        <div class="searched">
-          <form [formGroup]="" class="form-search">
-            <input type="text" placeholder="Search Friend">
-            <button data-ripple><i class="fa fa-search"></i></button>
-          </form>
-        </div>
+        <form [formGroup]="" (change)="submit($event)">
+          <button class="fa fa-search">
+
+            <input type="text" placeholder="Search Friend" [ngModel]="userName" >
+
+          </button>
+        </form>
       </li>
 
       <li>
@@ -37,7 +37,7 @@
         <div class="dropdowns">
           <span>4 New Notifications</span>
           <ul class="drops-menu">
-<!--            lặp số lượng thông báo-->
+            <!--            lặp số lượng thông báo-->
             <li>
               <a href="notifications.html" title="">
                 <img src="images/resources/thumb-1.jpg" alt="">

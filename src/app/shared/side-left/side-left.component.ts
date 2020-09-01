@@ -19,4 +19,8 @@ export class SideLeftComponent implements OnInit {
     console.log('this is navigate');
     this.route.navigate(['login']);
   }
+
+  goNewfeed(){
+    this.route.navigate(['home']);
+  }
 }
