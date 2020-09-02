@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,9 @@ export class HeaderComponent implements OnInit {
 
   userName: string;
 
-  constructor(private route: Router, private  activatedRoute: ActivatedRoute) {
+  user2: Account[];
+
+  constructor(private route: Router, private  activatedRoute: ActivatedRoute, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -21,13 +24,19 @@ export class HeaderComponent implements OnInit {
 
   submit(value) {
     this.userName = value.target.value;
-    console.log(this.userName);
 
     this.route.navigate(['home/search'], {
+
       queryParams: {
         q: this.userName
       }
     });
+    this.userService.searchFriends(this.userName).subscribe((rep: Account[]) => {
+      this.user2 = rep;
+
+    });
+
+
   }
 
 }

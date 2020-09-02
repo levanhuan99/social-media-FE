@@ -21,8 +21,8 @@ export class UserService {
     return this.http.put<Account>(this.url + 'api/user/' + id + '/edit', account);
   }
 
-  searchFriends(): Observable<any> {
-    return this.http.get<any>(this.url + 'api/user/search');
+  searchFriends(keyword:string): Observable<any> {
+    return this.http.get<any>(this.url + 'api/friends/search?q='+keyword);
 
   }
 }
