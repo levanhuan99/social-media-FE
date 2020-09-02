@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -8,18 +8,26 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userName:string;
+  formHeader: FormGroup;
 
-  constructor(private route:Router,private  activatedRoute:ActivatedRoute) { }
+  userName: string;
+
+  constructor(private route: Router, private  activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
 
   }
 
-  submit(value){
-    this.userName=value.target.value;
+  submit(value) {
+    this.userName = value.target.value;
     console.log(this.userName);
-    this.route.navigate(['home/search']);
+
+    this.route.navigate(['home/search'], {
+      queryParams: {
+        q: this.userName
+      }
+    });
   }
 
 }

@@ -21,7 +21,7 @@
 
     <ul class="setting-area">
       <li>
-        <form [formGroup]="" (change)="submit($event)">
+        <form [formGroup]="formHeader" (change)="submit($event)">
           <button class="fa fa-search">
 
             <input type="text" placeholder="Search Friend" [ngModel]="userName" >
