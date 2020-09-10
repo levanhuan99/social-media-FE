@@ -3,10 +3,10 @@ export interface Account {
 
   email?: string;
   nickName?: string;
-  phoneNumber?:string;
-  birthDay?:Date;
+  phoneNumber?: string;
+  birthDay?: Date;
   password?: string;
-  avatar?:string;
+  avatar?: string;
 
 
 }

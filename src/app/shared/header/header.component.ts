@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 
@@ -13,13 +13,15 @@ export class HeaderComponent implements OnInit {
 
   userName: string;
 
-  user2: Account[];
+  resultSearchFriends: Account[];
 
-  constructor(private route: Router, private  activatedRoute: ActivatedRoute, private userService: UserService) {
+  constructor(private route: Router) {
   }
 
   ngOnInit(): void {
-
+    this.formHeader = new FormGroup({
+      firstName: new FormControl()
+    });
   }
 
   submit(value) {
@@ -31,12 +33,7 @@ export class HeaderComponent implements OnInit {
         q: this.userName
       }
     });
-    this.userService.searchFriends(this.userName).subscribe((rep: Account[]) => {
-      this.user2 = rep;
-
-    });
-
-
   }
+
 
 }

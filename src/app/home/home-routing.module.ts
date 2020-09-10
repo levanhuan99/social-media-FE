@@ -4,8 +4,6 @@ import {PostsComponent} from './posts/posts.component';
 import {AuthGuard} from '../guard/auth.guard';
 import {FindFriendsComponent} from './find-friends/find-friends.component';
 
-
-
 const routes: Routes = [
 
   {

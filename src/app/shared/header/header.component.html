@@ -24,7 +24,7 @@
         <form [formGroup]="formHeader" (change)="submit($event)">
           <button class="fa fa-search">
 
-            <input type="text" placeholder="Search Friend" [ngModel]="userName" >
+            <input type="text" placeholder="Search Friend" [ngModel]="userName"  formControlName="firstName">
 
           </button>
         </form>
