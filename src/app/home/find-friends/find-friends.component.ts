@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
-import {Account} from '../../models/Account';
 import {TokenStorageService} from '../../services/token-storage.service';
+import {ResponseSearch} from '../../models/ResponseSearch';
 
 @Component({
   selector: 'app-find-friends',
@@ -13,16 +13,19 @@ export class FindFriendsComponent implements OnInit {
 
   searchKeyword: string;
 
-
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute,private token:TokenStorageService) {
+  constructor(private userService: UserService,
+              private activatedRoute: ActivatedRoute,
+              private token: TokenStorageService,
+              private router:Router) {
   }
 
-  friendList: Account[];
+  friendList: ResponseSearch[];
 
   ngOnInit(): void {
 
     this.getSearchWord();
   }
+
 
   getSearchWord() {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -31,15 +34,26 @@ export class FindFriendsComponent implements OnInit {
     });
   }
 
+
   getListFriends() {
-    this.userService.searchFriends(this.searchKeyword,this.token.getId()).subscribe((resp: Account[]) => {
+    this.userService.searchFriends(this.searchKeyword, this.token.getId()).subscribe((resp: ResponseSearch[]) => {
       this.friendList = resp;
+      console.log(this.friendList);
     });
   }
 
-  addFriend(reciverId){
-    const  senderId= +this.token.getId();
-    this.userService.sendFriendRequest(reciverId,senderId).subscribe(resp=>{
-    })
+
+  addFriend(reciverId) {
+    const senderId = +this.token.getId();
+    this.userService.sendFriendRequest(reciverId, senderId).subscribe(resp => {
+    });
+    this.getSearchWord();
+  }
+
+  unfriend(reciverId) {
+    const senderId = +this.token.getId();
+    this.userService.unfriend(reciverId, senderId).subscribe(resp => {
+    });
+    this.getSearchWord();
   }
 }

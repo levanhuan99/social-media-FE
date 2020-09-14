@@ -13,14 +13,18 @@
               <p>Software Engineer</p>
               <p class="text-muted">500m away</p>
             </div>
-            <div class="col-md-3 col-sm-3">
-              <button class="btn btn-primary pull-right" (click)="addFriend(user.id)">Add Friend</button>
+            <div class="col-md-3 col-sm-3" *ngIf="user.friendStatus=='No'">
+              <button class="btn btn-primary pull-right" (click)="addFriend(user.id)">Send Request</button>
+            </div>
+            <div class="col-md-3 col-sm-3" *ngIf="user.friendStatus=='Pending'">
+              <button class="btn btn-primary pull-right" (click)="unfriend(user.id)">Wating Response</button>
+            </div>
+            <div class="col-md-3 col-sm-3" *ngIf="user.friendStatus=='Yes'">
+              <button class="btn btn-primary pull-right" (click)="unfriend(user.id)">Unfriend</button>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>

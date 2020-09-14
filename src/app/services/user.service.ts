@@ -22,16 +22,21 @@ export class UserService {
     return this.http.put<Account>(this.url + 'api/user/' + id + '/edit', account);
   }
 
-  searchFriends(keyword: string,senderid:string): Observable<any> {
-    return this.http.get<any>(this.url + 'api/friends/search?q=' + keyword+'&&senderId='+senderid);
+  searchFriends(keyword: string, senderid: string): Observable<any> {
+    return this.http.get<any>(this.url + 'api/friends/search?q=' + keyword + '&&senderId=' + senderid);
   }
 
-  getFriendList(){
+  getFriendList() {
     return new Array<Account>();
   }
 
-  sendFriendRequest(reciverId:number,senderId:number):Observable<any>{
+  sendFriendRequest(reciverId: number, senderId: number): Observable<any> {
     // @ts-ignore
-    return this.http.post<any>(this.url+'api/friends/sendRequest?senderId='+reciverId+'&&reciverId='+senderId);
+    return this.http.post<any>(this.url + 'api/friends/sendRequest?senderId=' + reciverId + '&&reciverId=' + senderId);
+  }
+
+  unfriend(reciverId:number,senderId:number):Observable<any>{
+    // @ts-ignore
+    return this.http.post<any>(this.url + 'api/friends/unfriend?senderId=' + reciverId + '&&reciverId=' + senderId);
   }
 }
