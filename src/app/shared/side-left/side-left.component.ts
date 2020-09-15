@@ -23,4 +23,7 @@ export class SideLeftComponent implements OnInit {
   goNewfeed(){
     this.route.navigate(['home']);
   }
+  goFriendRequestList(){
+    this.route.navigate(['home/friends']);
+  }
 }

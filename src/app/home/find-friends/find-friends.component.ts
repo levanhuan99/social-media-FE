@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {TokenStorageService} from '../../services/token-storage.service';
-import {ResponseSearch} from '../../models/ResponseSearch';
+import {FriendInfor} from '../../models/FriendInfor';
 
 @Component({
   selector: 'app-find-friends',
@@ -19,7 +19,7 @@ export class FindFriendsComponent implements OnInit {
               private router:Router) {
   }
 
-  friendList: ResponseSearch[];
+  friendList: FriendInfor[];
 
   ngOnInit(): void {
 
@@ -36,7 +36,7 @@ export class FindFriendsComponent implements OnInit {
 
 
   getListFriends() {
-    this.userService.searchFriends(this.searchKeyword, this.token.getId()).subscribe((resp: ResponseSearch[]) => {
+    this.userService.searchFriends(this.searchKeyword, this.token.getId()).subscribe((resp: FriendInfor[]) => {
       this.friendList = resp;
       console.log(this.friendList);
     });

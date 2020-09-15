@@ -39,4 +39,9 @@ export class UserService {
     // @ts-ignore
     return this.http.post<any>(this.url + 'api/friends/unfriend?senderId=' + reciverId + '&&reciverId=' + senderId);
   }
+
+  getFriendLsist(id:number):Observable<any>{
+    return this.http.get<any>(this.url + 'api/friends/?id=' + id );
+
+  }
 }

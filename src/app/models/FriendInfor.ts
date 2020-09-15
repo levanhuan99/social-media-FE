@@ -1,4 +1,4 @@
-export interface ResponseSearch {
+export interface FriendInfor {
   id?: number;
   nickName?: string;
   email?: string;

@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {PostsComponent} from './posts/posts.component';
 import {AuthGuard} from '../guard/auth.guard';
 import {FindFriendsComponent} from './find-friends/find-friends.component';
+import {FriendListComponent} from './friend-list/friend-list.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'search',
     component:FindFriendsComponent,canActivate:[AuthGuard]
+  },
+  {
+    path:'friends',
+    component:FriendListComponent,canActivate:[AuthGuard]
   }
 ];
 
