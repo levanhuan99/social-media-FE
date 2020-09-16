@@ -35,13 +35,22 @@ export class UserService {
     return this.http.post<any>(this.url + 'api/friends/sendRequest?senderId=' + reciverId + '&&reciverId=' + senderId);
   }
 
-  unfriend(reciverId:number,senderId:number):Observable<any>{
+  unfriend(reciverId: number, senderId: number): Observable<any> {
     // @ts-ignore
     return this.http.post<any>(this.url + 'api/friends/unfriend?senderId=' + reciverId + '&&reciverId=' + senderId);
   }
 
-  getFriendLsist(id:number):Observable<any>{
-    return this.http.get<any>(this.url + 'api/friends/?id=' + id );
-
+  getFriendLsist(id: number): Observable<any> {
+    return this.http.get<any>(this.url + 'api/friends/?id=' + id);
   }
+
+  getFriendRequestList(id:number):Observable<any>{
+    return this.http.get<any>(this.url + 'api/friends/request-list?id=' + id);
+  }
+
+  confirm(receiverId:number,senderId:number):Observable<any>{
+    // @ts-ignore
+    return this.http.post<any>(this.url + 'api/friends/confirm?receiverId=' + receiverId + '&&senderId='+ senderId);
+  }
+
 }

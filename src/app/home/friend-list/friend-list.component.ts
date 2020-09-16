@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {FriendInfor} from '../../models/FriendInfor';
 import {TokenStorageService} from '../../services/token-storage.service';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-friend-list',
@@ -10,20 +12,53 @@ import {TokenStorageService} from '../../services/token-storage.service';
 })
 export class FriendListComponent implements OnInit {
 
-  constructor(private userService:UserService,private token:TokenStorageService) { }
+  userId;
+  amountOfFriends = 0;
+  amountOfRequest = 0;
+  friends: FriendInfor[];
+  friendRequestList: FriendInfor[];
 
-  friends:FriendInfor[];
+  constructor(private userService: UserService,
+              private token: TokenStorageService,
+              private router: Router,
+              private toastService:ToastrService) {
+  }
+
   ngOnInit(): void {
+    this.userId = this.token.getId();
     this.getFriendList();
+    this.getFriendRequestList();
   }
 
-  getFriendList(){
-    const userId=this.token.getId();
+  getFriendList() {
     // @ts-ignore
-    this.userService.getFriendLsist(userId).subscribe(resp=>{
-      this.friends=resp;
-      console.log(this.friends);
-    })
+    this.userService.getFriendLsist(this.userId).subscribe(resp => {
+      this.friends = resp;
+      this.amountOfFriends = this.friends.length;
+    });
   }
+
+  getFriendRequestList() {
+    // @ts-ignore
+    this.userService.getFriendRequestList(this.userId).subscribe(resp => {
+      this.friendRequestList = resp;
+      this.amountOfRequest = this.friendRequestList.length;
+    });
+  }
+
+
+  confirm(id) {
+
+    // @ts-ignore
+    this.userService.confirm(this.userId, id).subscribe(resp => {
+    });
+    this.toastService.success("accepted ");
+
+    this.getFriendRequestList();
+    this.getFriendList();
+    this.router.navigate(['home/friends']);
+
+  }
+
 
 }
