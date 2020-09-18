@@ -5,6 +5,9 @@ import {HomeRoutingModule} from './home-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { FindFriendsComponent } from './find-friends/find-friends.component';
 import { FriendListComponent } from './friend-list/friend-list.component';
+import {MDBRootModule} from "angular-bootstrap-md";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {AngularEditorModule} from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { FriendListComponent } from './friend-list/friend-list.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBRootModule,
+    CKEditorModule,
+    AngularEditorModule
   ]
 })
 export class HomeModule {

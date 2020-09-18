@@ -4,40 +4,37 @@
       <img src="images/resources/admin2.jpg" alt="">
     </figure>
     <div class="newpst-input">
-      <form [formGroup]="" method="post">
-        <textarea rows="2" placeholder="write something"></textarea>
-        <div class="attachments">
-          <ul>
-            <li>
-              <i class="fa fa-music"></i>
-              <label class="fileContainer">
-                <input type="file">
-              </label>
-            </li>
-            <li>
-              <i class="fa fa-image"></i>
-              <label class="fileContainer">
-                <input type="file">
-              </label>
-            </li>
-            <li>
-              <i class="fa fa-video-camera"></i>
-              <label class="fileContainer">
-                <input type="file">
-              </label>
-            </li>
-            <li>
-              <i class="fa fa-camera"></i>
-              <label class="fileContainer">
-                <input type="file">
-              </label>
-            </li>
-            <li>
-              <button type="submit">Post</button>
-            </li>
-          </ul>
+      <!--      <form [formGroup]="postForm"  (ngSubmit)="submit()" >-->
+      <textarea data-toggle="modal" data-target="#myModal" rows="2"
+                placeholder="What's on your mind, {{userName}}?"></textarea>
+
+
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+              <div class="container">
+                <h1>Create Post</h1>
+                <label>Hi, {{userName}}</label>
+                <form [formGroup]="form" >
+                  <select formControlName="status" >
+                    <option value="true" selected>public</option>
+                    <option value="false">private</option>
+                  </select>
+                  <angular-editor id="editor1" formControlName="content" [config]="config1"
+                                  placeholder="What's on your mind? "></angular-editor>
+                  <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="submit()">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -225,7 +222,7 @@
               <img src="images/resources/comet-1.jpg" alt="">
             </div>
             <div class="post-comt-box">
-              <form [formGroup]=""  method="post">
+              <form [formGroup]="" method="post">
                 <textarea placeholder="Post your comment"></textarea>
                 <div class="add-smiles">
                                                                     <span class="em em-expressionless"

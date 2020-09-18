@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveAccessToken(resp.accessToken);
         this.tokenStorage.saveRoles(resp.roles);
         this.tokenStorage.saveLoggedStatus();
+        this.tokenStorage.saveUserName(resp.name);
       }
       this.route.navigate(['home']);
     });

@@ -26,4 +26,7 @@ export class SideLeftComponent implements OnInit {
   goFriendRequestList(){
     this.route.navigate(['home/friends']);
   }
+  goUserPage(){
+    this.route.navigate(['user/detail']);
+  }
 }

@@ -45,6 +45,13 @@ export class TokenStorageService {
     localStorage.setItem('logged_status', 'logged');
   }
 
+  public saveUserName(name:string) {
+    if (this.isLoggIn()) {
+      localStorage.removeItem('name');
+    }
+    localStorage.setItem('name', name);
+  }
+
   public isLoggIn(): boolean {
     if (localStorage.getItem('logged_status') === 'logged') {
       return true;
@@ -64,7 +71,9 @@ export class TokenStorageService {
   public clearTokens(){
     return localStorage.clear();
   }
-
+  public getUserName():string{
+    return localStorage.getItem('name');
+  }
 
 
 }

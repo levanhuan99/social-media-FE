@@ -16,8 +16,6 @@ import {APP_BASE_HREF} from '@angular/common';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 @NgModule({
   declarations: [
     AppComponent,
