@@ -21,7 +21,7 @@ export class FriendListComponent implements OnInit {
   constructor(private userService: UserService,
               private token: TokenStorageService,
               private router: Router,
-              private toastService:ToastrService) {
+              private toastService: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -48,16 +48,23 @@ export class FriendListComponent implements OnInit {
 
 
   confirm(id) {
-
     // @ts-ignore
     this.userService.confirm(this.userId, id).subscribe(resp => {
+      this.getFriendRequestList();
+      this.getFriendList();
+      this.router.navigate(['home/friends']);
+      this.toastService.success('Accepted ');
     });
-    this.toastService.success("accepted ");
+  }
 
-    this.getFriendRequestList();
-    this.getFriendList();
-    this.router.navigate(['home/friends']);
+  unfriend(receiverId) {
 
+    const senderId = +this.token.getId();
+    this.userService.unfriend(receiverId, senderId).subscribe(resp => {
+      this.ngOnInit();
+      this.router.navigate(['home/friends']);
+      this.toastService.success('You unfriend a person');
+    });
   }
 
 

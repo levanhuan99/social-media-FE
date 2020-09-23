@@ -50,9 +50,9 @@ export class FindFriendsComponent implements OnInit {
     this.getSearchWord();
   }
 
-  unfriend(reciverId) {
+  unfriend(receiverId) {
     const senderId = +this.token.getId();
-    this.userService.unfriend(reciverId, senderId).subscribe(resp => {
+    this.userService.unfriend(receiverId, senderId).subscribe(resp => {
     });
     this.getSearchWord();
   }

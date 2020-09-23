@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.checkLogin();
     this.loginForm = new FormGroup({
       email: new FormControl(''),
       password: new FormControl('')
@@ -47,5 +48,11 @@ export class LoginComponent implements OnInit {
 
   register() {
     this.route.navigate(['register']);
+  }
+
+  checkLogin(){
+    if(this.tokenStorage.isLoggIn()){
+      this.route.navigate(['home']);
+    }
   }
 }

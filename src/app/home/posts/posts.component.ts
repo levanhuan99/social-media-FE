@@ -44,7 +44,7 @@ export class PostsComponent implements OnInit {
     this.postService.createPost(post).subscribe(resp=>{
       console.log("OK");
     });
-    this.form.value.content.setValue='';
+    this.form.value.content.setValue('');
   }
 
   config1: AngularEditorConfig = {
